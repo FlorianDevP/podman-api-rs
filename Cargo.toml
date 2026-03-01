@@ -11,6 +11,14 @@ homepage = "https://github.com/vv9k/podman-api-rs"
 repository = "https://github.com/vv9k/podman-api-rs"
 keywords = ["podman", "api", "containers", "docker", "unix"]
 
+[workspace]
+resolver = "3"
+members = [".", "podman-api-stubs/lib", "xtask"]
+
+[workspace.dependencies]
+tar = "0.4"
+flate2 = "1"
+
 [dependencies]
 podman-api-stubs = "0.9"
 #podman-api-stubs = { path = "./podman-api-stubs/lib" }
@@ -38,8 +46,8 @@ futures_codec = "0.5"
 tokio = "1"
 futures-util = "0.3"
 
-tar = "0.4"
-flate2 = "1"
+tar.workspace = true
+flate2.workspace = true
 
 [dev-dependencies]
 env_logger = "0.11"
